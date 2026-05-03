@@ -83,12 +83,58 @@
     transform: rotate(45deg);
   }
 
-  /* Photo label (mono caption overlay) */
+  /* Photo label (mono caption overlay, bottom-left) */
   .photo-label {
     position: absolute; left: 18px; bottom: 16px; z-index: 3;
     font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
     color: rgba(245, 245, 242, 0.75); text-transform: uppercase;
     pointer-events: none; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Technical figure reference mark (top-right, like a blueprint) */
+  .fig-mark {
+    position: absolute; top: 16px; right: 16px; z-index: 3;
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em;
+    color: var(--gold); text-transform: uppercase;
+    padding: 4px 8px;
+    border: 0.5px solid rgba(201, 160, 58, 0.4);
+    background: rgba(5, 14, 31, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: none;
+  }
+
+  /* SVG blueprint card (replaces stock photo for Custom Build) */
+  .blueprint {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0A1A2E 0%, #050E1F 100%);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .blueprint svg { width: 88%; height: auto; opacity: 0.85; }
+  .blueprint::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,160,58,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,160,58,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.7;
+  }
+
+  /* Compass-rose mini detail beside section numbers */
+  .compass {
+    width: 14px; height: 14px; display: inline-block;
+    vertical-align: middle; margin-right: 8px;
+    color: var(--gold);
+  }
+
+  /* Depth-chart SVG pattern background (used on shipyards section) */
+  .depth-chart-bg {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><g fill='none' stroke='%23C9A03A' stroke-width='0.5'><path d='M0,40 Q60,20 120,40 T240,40'/><path d='M0,80 Q60,60 120,80 T240,80'/><path d='M0,120 Q60,100 120,120 T240,120'/><path d='M0,160 Q60,140 120,160 T240,160'/><path d='M0,200 Q60,180 120,200 T240,200'/></g></svg>");
+    background-size: 240px 240px;
   }
 
   /* Stat blocks for vessel specs */
@@ -715,7 +761,7 @@
 <section id="vessels" class="vessels padded">
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-num">02 — Under Build</span>
+      <span class="section-num"><svg class="compass" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="0.6"><circle cx="7" cy="7" r="6"/><path d="M7 1 L7 13 M1 7 L13 7" stroke-width="0.4"/><path d="M7 2 L8.5 7 L7 6.5 L5.5 7 Z" fill="currentColor" stroke="none"/></svg>02 — Under Build</span>
       <div>
         <span class="section-eyebrow">Our Fleet</span>
         <h2 class="section-title">Built for every <em class="cool">mission</em>.</h2>
@@ -727,6 +773,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&q=80')"></div>
         <div class="photo-label">FFG-62 CLASS</div>
+        <span class="fig-mark">FIG. 01</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Navy</span>
@@ -742,6 +789,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1517639493569-5666a7b2f494?w=1200&q=80')"></div>
         <div class="photo-label">USCG · PSC</div>
+        <span class="fig-mark">FIG. 02</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Coast Guard</span>
@@ -757,6 +805,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1502920514313-52581002a659?w=1200&q=80')"></div>
         <div class="photo-label">CLEAN ENERGY</div>
+        <span class="fig-mark">FIG. 03</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -772,6 +821,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=1200&q=80')"></div>
         <div class="photo-label">ATB UNIT</div>
+        <span class="fig-mark">FIG. 04</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -787,6 +837,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?w=1200&q=80')"></div>
         <div class="photo-label">PSV</div>
+        <span class="fig-mark">FIG. 05</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -802,6 +853,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80')"></div>
         <div class="photo-label">SOV</div>
+        <span class="fig-mark">FIG. 06</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -817,6 +869,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1200&q=80')"></div>
         <div class="photo-label">RV PLATFORM</div>
+        <span class="fig-mark">FIG. 07</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Government</span>
@@ -832,6 +885,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1486365227551-f3f90034a57c?w=1200&q=80')"></div>
         <div class="photo-label">DREDGE</div>
+        <span class="fig-mark">FIG. 08</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Government</span>
@@ -847,6 +901,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1551244072-5d12893278ab?w=1200&q=80')"></div>
         <div class="photo-label">HYBRID</div>
+        <span class="fig-mark">FIG. 09</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -862,6 +917,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&q=80')"></div>
         <div class="photo-label">YARD SERVICE</div>
+        <span class="fig-mark">FIG. 10</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Service</span>
@@ -877,6 +933,7 @@
       <article class="vessel-card reveal">
         <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1200&q=80')"></div>
         <div class="photo-label">LAKER</div>
+        <span class="fig-mark">FIG. 11</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Commercial</span>
@@ -890,8 +947,63 @@
       </article>
 
       <article class="vessel-card reveal">
-        <div class="vessel-img" style="background-image: url('https://images.unsplash.com/photo-1567789884554-0b844b597180?w=1200&q=80')"></div>
+        <div class="blueprint">
+          <svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Hull side profile (frigate-class) -->
+            <g fill="none" stroke="#C9A03A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Hull line -->
+              <path d="M 60 280 L 100 240 L 720 240 L 760 256 L 780 268 L 760 290 L 700 308 L 120 308 L 80 296 Z"/>
+              <!-- Deck line -->
+              <path d="M 100 240 L 720 240"/>
+              <!-- Superstructure -->
+              <path d="M 200 240 L 200 180 L 460 180 L 460 200 L 480 200 L 480 240"/>
+              <path d="M 280 180 L 280 130 L 380 130 L 380 180"/>
+              <path d="M 320 130 L 320 80 L 360 80 L 360 130"/>
+              <!-- Mast -->
+              <path d="M 340 80 L 340 40"/>
+              <path d="M 340 56 L 320 60 L 360 60"/>
+              <!-- Bridge windows -->
+              <path d="M 290 150 L 370 150"/>
+              <!-- Funnel/exhaust -->
+              <path d="M 400 200 L 400 170 L 440 170 L 440 200"/>
+              <!-- Bow detail -->
+              <path d="M 60 280 L 80 268 L 100 240"/>
+              <!-- Stern detail -->
+              <path d="M 760 256 L 720 240"/>
+              <!-- Keel/waterline marks -->
+              <path d="M 0 320 L 800 320" stroke-dasharray="4 6" opacity="0.6"/>
+              <path d="M 0 332 L 800 332" stroke-dasharray="2 8" opacity="0.4"/>
+              <!-- Frame stations (vertical reference lines) -->
+              <g opacity="0.35" stroke-dasharray="2 4">
+                <path d="M 160 240 L 160 308"/>
+                <path d="M 240 240 L 240 308"/>
+                <path d="M 320 240 L 320 308"/>
+                <path d="M 400 240 L 400 308"/>
+                <path d="M 480 240 L 480 308"/>
+                <path d="M 560 240 L 560 308"/>
+                <path d="M 640 240 L 640 308"/>
+              </g>
+              <!-- Scale indicator -->
+              <g stroke-width="0.8" opacity="0.7">
+                <path d="M 60 380 L 760 380"/>
+                <path d="M 60 376 L 60 384"/>
+                <path d="M 760 376 L 760 384"/>
+                <path d="M 410 376 L 410 384"/>
+              </g>
+            </g>
+            <!-- Annotation labels -->
+            <g font-family="ui-monospace, JetBrains Mono, monospace" font-size="9" fill="#C9A03A" letter-spacing="2">
+              <text x="60" y="400" opacity="0.7">0</text>
+              <text x="395" y="400" opacity="0.7">L/2</text>
+              <text x="745" y="400" opacity="0.7">LOA</text>
+              <text x="60" y="420" opacity="0.5">FRAME STATIONS · BWL · DWL</text>
+              <text x="700" y="40" opacity="0.7">SHEET 1/12</text>
+              <text x="60" y="40" opacity="0.7">FMG-CB-2026</text>
+            </g>
+          </svg>
+        </div>
         <div class="photo-label">BESPOKE</div>
+        <span class="fig-mark">FIG. 12</span>
         <div class="vessel-overlay"></div>
         <div class="vessel-content">
           <span class="vessel-tag">Custom</span>
@@ -909,10 +1021,10 @@
 </section>
 
 <!-- ═══════════════ SHIPYARDS ═══════════════ -->
-<section id="shipyards" class="shipyards padded">
+<section id="shipyards" class="shipyards padded"><div class="depth-chart-bg"></div>
   <div class="container">
     <div class="section-head reveal">
-      <span class="section-num">03 — Yards</span>
+      <span class="section-num"><svg class="compass" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="0.6"><circle cx="7" cy="7" r="6"/><path d="M7 1 L7 13 M1 7 L13 7" stroke-width="0.4"/><path d="M7 2 L8.5 7 L7 6.5 L5.5 7 Z" fill="currentColor" stroke="none"/></svg>03 — Yards</span>
       <div>
         <span class="section-eyebrow">Three Yards · One Group</span>
         <h2 class="section-title">Three yards on the <em class="cool">Great Lakes</em>.</h2>
