@@ -297,6 +297,98 @@
     margin-top: 32px;
   }
 
+  /* ───── PARENT GROUP STAT BAND ───── */
+  .group-band {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--steel) 100%);
+    padding: 100px 0 88px;
+    border-top: 0.5px solid var(--hair);
+    border-bottom: 0.5px solid var(--hair);
+    position: relative;
+    overflow: hidden;
+  }
+  .group-band .depth-chart-bg { opacity: 0.05; }
+  .group-band .container { position: relative; z-index: 2; }
+  .group-band .section-head { margin-bottom: 56px; }
+  .group-band .section-title {
+    font-size: clamp(40px, 5.4vw, 72px);
+    max-width: 22ch;
+  }
+  .group-band .section-sub {
+    font-size: 16px;
+    max-width: 56ch;
+  }
+  .group-stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border-top: 0.5px solid var(--hair-strong);
+    border-bottom: 0.5px solid var(--hair-strong);
+    margin-top: 28px;
+  }
+  .group-stat {
+    padding: 36px 24px 32px;
+    border-right: 0.5px solid var(--hair);
+    position: relative;
+  }
+  .group-stat:last-child { border-right: 0; }
+  .group-stat .gs-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+    font-weight: 500;
+  }
+  .group-stat .gs-v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 12px;
+  }
+  .group-stat .gs-v small {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 300;
+    font-size: 0.42em;
+    color: var(--gold);
+    letter-spacing: 0;
+    margin-left: 4px;
+  }
+  .group-stat .gs-k {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ivory-soft);
+    font-weight: 400;
+    max-width: 22ch;
+  }
+  .group-source {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ivory-mute);
+    text-transform: uppercase;
+    margin-top: 28px;
+    text-align: right;
+  }
+  @media (max-width: 1024px) {
+    .group-stats { grid-template-columns: repeat(3, 1fr); }
+    .group-stat:nth-child(3) { border-right: 0; }
+    .group-stat:nth-child(4), .group-stat:nth-child(5), .group-stat:nth-child(6) {
+      border-top: 0.5px solid var(--hair);
+    }
+  }
+  @media (max-width: 640px) {
+    .group-band { padding: 72px 0 60px; }
+    .group-stats { grid-template-columns: repeat(2, 1fr); }
+    .group-stat { padding: 28px 18px 24px; border-right: 0.5px solid var(--hair); }
+    .group-stat:nth-child(2n) { border-right: 0; }
+    .group-stat:nth-child(n+3) { border-top: 0.5px solid var(--hair); }
+  }
+
   /* ───── MARKETS BAR ───── */
   .markets {
     background: var(--steel);
@@ -690,6 +782,7 @@
   <div class="container nav">
     <a href="#" class="logo">FINCANTIERI <span class="accent">MARINE GROUP</span></a>
     <nav class="nav-links">
+      <a href="#group">The Group</a>
       <a href="#markets">Markets</a>
       <a href="#vessels">Vessels</a>
       <a href="#shipyards">Shipyards</a>
@@ -705,21 +798,69 @@
   <div class="hero-grain"></div>
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <span class="hero-eyebrow reveal">A Fincantieri S.p.A. Company / Built In America</span>
-    <h1 class="reveal reveal-delay-1">Future <em class="warm">Onboard.</em></h1>
+    <span class="hero-eyebrow reveal">The American Shipyard of Fincantieri S.p.A. · Italy · Est. 1959</span>
+    <h1 class="reveal reveal-delay-1">Built In America. <em class="warm">228 Years</em> At Sea.</h1>
     <div class="hero-foot reveal reveal-delay-2">
-      <p class="hero-sub">Custom vessels, advanced design capabilities, and four U.S. shipyards. The American arm of Fincantieri S.p.A., one of the world's largest shipbuilders.</p>
+      <p class="hero-sub">The American manufacturing arm of Fincantieri S.p.A., the Italian state shipbuilder with 18 yards on four continents, 7,000+ ships across 228 years of yard history, and &euro;9.2&nbsp;billion in 2025 revenue.</p>
       <div class="hero-meta">
-        EST. <b>2008</b><br>
-        SHIPYARDS <b>04</b><br>
-        MARINETTE BUILDS <b>1,500+</b><br>
-        PARENT GROUP <b>7,000+ SHIPS</b>
+        PARENT GROUP <b>FINCANTIERI S.p.A.</b><br>
+        HERITAGE <b>228 YRS · 7,000+ SHIPS</b><br>
+        2025 REVENUE <b>&euro;9.2 BILLION</b><br>
+        WORKFORCE <b>24,000 GLOBAL</b>
       </div>
     </div>
     <div class="hero-ctas reveal reveal-delay-3">
       <a href="#vessels" class="btn">Explore Vessels</a>
       <a href="#shipyards" class="linkish">View our shipyards <span class="arrow"></span></a>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PARENT GROUP ═══════════════ -->
+<section id="group" class="group-band">
+  <div class="depth-chart-bg"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num"><svg class="compass" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="0.6"><circle cx="7" cy="7" r="6"/><path d="M7 1 L7 13 M1 7 L13 7" stroke-width="0.4"/><path d="M7 2 L8.5 7 L7 6.5 L5.5 7 Z" fill="currentColor" stroke="none"/></svg>01 — The Group</span>
+      <div>
+        <span class="section-eyebrow">A Fincantieri S.p.A. Company</span>
+        <h2 class="section-title">The vessels built in Wisconsin carry <em class="cool">228 years</em> of shipyard heritage.</h2>
+        <p class="section-sub">Fincantieri Marine Group is the American arm of Fincantieri S.p.A., the Italian state shipbuilder ranked among the world's largest. Every keel laid in Marinette, Sturgeon Bay, and Green Bay sits inside a global production network spanning four continents.</p>
+      </div>
+    </div>
+    <div class="group-stats reveal">
+      <div class="group-stat">
+        <span class="gs-num">FIG. 01</span>
+        <div class="gs-v">7,000<small>+</small></div>
+        <div class="gs-k">Ships built across two centuries of yard history.</div>
+      </div>
+      <div class="group-stat">
+        <span class="gs-num">FIG. 02</span>
+        <div class="gs-v">&euro;9.2<small>B</small></div>
+        <div class="gs-k">Group revenue, 2025 financial year.</div>
+      </div>
+      <div class="group-stat">
+        <span class="gs-num">FIG. 03</span>
+        <div class="gs-v">&euro;63<small>B</small></div>
+        <div class="gs-k">Total order backlog. Visibility through 2037.</div>
+      </div>
+      <div class="group-stat">
+        <span class="gs-num">FIG. 04</span>
+        <div class="gs-v">18</div>
+        <div class="gs-k">Shipyards on four continents. Global capacity, local delivery.</div>
+      </div>
+      <div class="group-stat">
+        <span class="gs-num">FIG. 05</span>
+        <div class="gs-v">24,000<small>+</small></div>
+        <div class="gs-k">Employees worldwide. 1,500+ in Wisconsin alone.</div>
+      </div>
+      <div class="group-stat">
+        <span class="gs-num">FIG. 06</span>
+        <div class="gs-v">97</div>
+        <div class="gs-k">Vessels in active build. Deliveries scheduled through 2037.</div>
+      </div>
+    </div>
+    <p class="group-source reveal">Source: Fincantieri 2025 Group Financial Results.</p>
   </div>
 </section>
 
@@ -1028,7 +1169,7 @@
       <div>
         <span class="section-eyebrow">Four Yards · One Group</span>
         <h2 class="section-title">Four U.S. yards. One <em class="cool">parent</em>.</h2>
-        <p class="section-sub">Three Wisconsin shipyards on the Great Lakes plus a Florida repair facility. The American manufacturing footprint of Fincantieri S.p.A., one of the world's four largest shipbuilders.</p>
+        <p class="section-sub">Three Wisconsin shipyards on the Great Lakes plus a Florida repair facility. The American manufacturing footprint of Fincantieri S.p.A., one of the world's largest shipbuilders.</p>
       </div>
     </div>
     <div class="yards-grid">
