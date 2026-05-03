@@ -7,7 +7,7 @@
 <meta name="description" content="High-quality advanced ships built at three Wisconsin shipyards on the Great Lakes. Custom vessels and advanced design capabilities for Navy, Coast Guard, commercial, and government customers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #050E1F;
@@ -32,6 +32,16 @@
     color: var(--off-white);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.002em;
+  }
+
+  /* Page-wide film-grain overlay (premium texture) */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+    opacity: 0.06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
   }
 
   .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; line-height: 1.05; }
@@ -88,15 +98,24 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=2400&q=85');
+    background-image: url('https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=2800&q=92');
     background-size: cover;
     background-position: center;
     animation: kenBurns 28s ease-in-out infinite alternate;
     transform-origin: center center;
+    filter: contrast(1.08) saturate(1.06);
+  }
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
   }
   @keyframes kenBurns {
-    0%   { transform: scale(1.0) translateX(0) translateY(0); }
-    100% { transform: scale(1.15) translateX(-30px) translateY(-15px); }
+    0%   { transform: scale(1.08) translate(-1.2%, -0.5%); }
+    100% { transform: scale(1.14) translate(1.2%, 0.8%); }
   }
   .hero-overlay {
     position: absolute; inset: 0;
@@ -105,33 +124,58 @@
   .hero-content {
     position: relative; z-index: 2;
     width: 100%;
-    padding-bottom: 80px;
+    padding-bottom: 64px;
   }
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 12px; letter-spacing: 0.3em; font-weight: 600;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 11px; letter-spacing: 0.32em; font-weight: 600;
     color: var(--gold);
-    margin-bottom: 24px;
-    padding-left: 16px;
-    border-left: 2px solid var(--gold);
+    margin-bottom: 36px;
+    text-transform: uppercase;
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: currentColor; opacity: 0.7;
   }
   .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(56px, 9vw, 132px);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
+    font-size: clamp(64px, 10vw, 156px);
+    line-height: 0.92;
+    letter-spacing: 0.015em;
     color: var(--white);
-    margin-bottom: 28px;
+    margin-bottom: 36px;
+    max-width: 14ch;
   }
   .hero h1 .gold { color: var(--gold); }
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    border-top: 1px solid rgba(245, 245, 242, 0.22);
+    padding-top: 26px;
+    margin-top: 8px;
+  }
   .hero-sub {
-    font-size: clamp(16px, 1.4vw, 19px);
-    max-width: 620px;
-    color: rgba(245,245,242,0.85);
-    margin-bottom: 40px;
+    font-size: clamp(15px, 1.2vw, 17px);
+    max-width: 52ch;
+    color: rgba(245, 245, 242, 0.88);
+    line-height: 1.65;
     font-weight: 300;
   }
-  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(245, 245, 242, 0.7);
+    text-align: right;
+    line-height: 1.9;
+    flex-shrink: 0;
+  }
+  .hero-meta b { font-weight: 400; color: var(--white); }
+  .hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 32px;
+  }
 
   /* ───── MARKETS BAR ───── */
   .markets {
@@ -230,13 +274,30 @@
     position: absolute; inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.8s ease;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+    filter: contrast(1.06) saturate(1.04) brightness(0.97);
   }
-  .vessel-card:hover .vessel-img { transform: scale(1.08); }
+  .vessel-card:hover .vessel-img { transform: scale(1.1); filter: contrast(1.1) saturate(1.1) brightness(1); }
   .vessel-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(5,14,31,0) 0%, rgba(5,14,31,0.2) 50%, rgba(5,14,31,0.95) 100%);
+    background: linear-gradient(180deg, rgba(5,14,31,0) 0%, rgba(5,14,31,0.25) 50%, rgba(5,14,31,0.97) 100%);
   }
+  .vessel-vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(5,14,31,0.35) 100%);
+    pointer-events: none;
+  }
+  .vessel-card::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 3;
+  }
+  .vessel-card:hover::after { transform: scaleX(1); }
   .vessel-content {
     position: absolute; bottom: 0; left: 0; right: 0;
     padding: 28px;
@@ -322,35 +383,59 @@
 
   /* ───── CLIENTS ───── */
   .clients {
-    background: var(--navy);
-    padding: 80px 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: var(--off-white);
+    padding: 100px 0;
   }
   .clients-eyebrow {
     text-align: center;
     font-size: 12px; letter-spacing: 0.3em; font-weight: 600;
-    color: rgba(245,245,242,0.5);
-    margin-bottom: 40px;
+    color: var(--grey);
+    margin-bottom: 56px;
     text-transform: uppercase;
   }
-  .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 32px;
+  .marquee {
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 80px;
     align-items: center;
+    width: max-content;
+    animation: marquee 55s linear infinite;
   }
-  .client-name {
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.08em;
-    color: rgba(245,245,242,0.6);
-    transition: color 0.3s;
-    padding: 16px 8px;
-    border: 1px solid rgba(255,255,255,0.06);
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 40px)); }
   }
-  .client-name:hover { color: var(--gold); border-color: rgba(201, 160, 58, 0.3); }
+  .marquee-logo {
+    flex-shrink: 0;
+    height: 76px;
+    min-width: 200px;
+    padding: 0 36px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--white);
+    border: 1px solid #E8E5DD;
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+  .marquee-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(5, 14, 31, 0.12);
+    border-color: var(--gold);
+  }
+  .marquee-logo .accent { color: var(--gold); }
+  .marquee-logo .red { color: #C8102E; }
+  .marquee-logo .blue { color: #003D7A; }
+  .marquee-logo .ital { font-style: italic; font-weight: 500; opacity: 0.85; margin: 0 4px; }
 
   /* ───── FINAL CTA ───── */
   .final-cta {
@@ -480,11 +565,20 @@
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <span class="hero-eyebrow">Three Wisconsin Shipyards · Built In America</span>
+    <span class="hero-eyebrow">Three Wisconsin Shipyards / Built In America</span>
     <h1>Future <span class="gold">Onboard.</span></h1>
-    <p class="hero-sub">Custom vessels, advanced design capabilities, and three Great Lakes shipyards. We build the ships that protect, supply, and connect the modern world.</p>
+    <div class="hero-foot">
+      <p class="hero-sub">Custom vessels, advanced design capabilities, and three Great Lakes shipyards. We build the ships that protect, supply, and connect the modern world.</p>
+      <div class="hero-meta">
+        EST. <b>1918</b><br>
+        SHIPYARDS <b>03</b><br>
+        VESSELS DELIVERED <b>1,500+</b><br>
+        ACTIVE PROGRAMS <b>12</b>
+      </div>
+    </div>
     <div class="hero-ctas">
       <a href="#vessels" class="btn">Explore Vessels</a>
       <a href="#shipyards" class="btn btn-outline">Our Shipyards</a>
@@ -730,15 +824,48 @@
 
 <!-- ═══════════════ CLIENTS ═══════════════ -->
 <section class="clients">
-  <div class="container">
-    <div class="clients-eyebrow">Trusted by the operators who can't afford to fail</div>
-    <div class="clients-grid">
-      <div class="client-name">US NAVY</div>
-      <div class="client-name">US COAST GUARD</div>
-      <div class="client-name">US ARMY</div>
-      <div class="client-name">CROWLEY</div>
-      <div class="client-name">MORAN TOWING</div>
-      <div class="client-name">INTERLAKE STEAMSHIP</div>
+  <div class="clients-eyebrow">Trusted by the operators who can't afford to fail</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-logo">US <span class="accent">NAVY</span></span>
+      <span class="marquee-logo">US COAST GUARD</span>
+      <span class="marquee-logo">US <span class="accent">ARMY</span></span>
+      <span class="marquee-logo">ARMY CORPS OF ENGINEERS</span>
+      <span class="marquee-logo"><span class="red">CROWLEY</span></span>
+      <span class="marquee-logo"><span class="blue">MORAN TOWING</span></span>
+      <span class="marquee-logo">INTERLAKE <span class="ital">Steamship</span></span>
+      <span class="marquee-logo">GREAT LAKES <span class="accent">DREDGE</span></span>
+      <span class="marquee-logo">NORFOLK DREDGING</span>
+      <span class="marquee-logo"><span class="blue">M</span>obi<span class="red">l</span></span>
+      <span class="marquee-logo"><span class="red">SHELL</span></span>
+      <span class="marquee-logo">KIRBY</span>
+      <span class="marquee-logo">TIDEWATER</span>
+      <span class="marquee-logo">NORTHSTAR <span class="accent">MIDSTREAM</span></span>
+      <span class="marquee-logo">POLARIS NEW ENERGY</span>
+      <span class="marquee-logo">VAN ENKEVORT</span>
+      <span class="marquee-logo">WASHINGTON ISLAND FERRY</span>
+      <span class="marquee-logo">WAWA</span>
+      <span class="marquee-logo">CITY OF <span class="accent">CHICAGO</span></span>
+      <!-- Duplicate set for continuous loop -->
+      <span class="marquee-logo" aria-hidden="true">US <span class="accent">NAVY</span></span>
+      <span class="marquee-logo" aria-hidden="true">US COAST GUARD</span>
+      <span class="marquee-logo" aria-hidden="true">US <span class="accent">ARMY</span></span>
+      <span class="marquee-logo" aria-hidden="true">ARMY CORPS OF ENGINEERS</span>
+      <span class="marquee-logo" aria-hidden="true"><span class="red">CROWLEY</span></span>
+      <span class="marquee-logo" aria-hidden="true"><span class="blue">MORAN TOWING</span></span>
+      <span class="marquee-logo" aria-hidden="true">INTERLAKE <span class="ital">Steamship</span></span>
+      <span class="marquee-logo" aria-hidden="true">GREAT LAKES <span class="accent">DREDGE</span></span>
+      <span class="marquee-logo" aria-hidden="true">NORFOLK DREDGING</span>
+      <span class="marquee-logo" aria-hidden="true"><span class="blue">M</span>obi<span class="red">l</span></span>
+      <span class="marquee-logo" aria-hidden="true"><span class="red">SHELL</span></span>
+      <span class="marquee-logo" aria-hidden="true">KIRBY</span>
+      <span class="marquee-logo" aria-hidden="true">TIDEWATER</span>
+      <span class="marquee-logo" aria-hidden="true">NORTHSTAR <span class="accent">MIDSTREAM</span></span>
+      <span class="marquee-logo" aria-hidden="true">POLARIS NEW ENERGY</span>
+      <span class="marquee-logo" aria-hidden="true">VAN ENKEVORT</span>
+      <span class="marquee-logo" aria-hidden="true">WASHINGTON ISLAND FERRY</span>
+      <span class="marquee-logo" aria-hidden="true">WAWA</span>
+      <span class="marquee-logo" aria-hidden="true">CITY OF <span class="accent">CHICAGO</span></span>
     </div>
   </div>
 </section>
