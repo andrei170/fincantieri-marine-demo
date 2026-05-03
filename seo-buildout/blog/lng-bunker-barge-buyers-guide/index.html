@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Spec an LNG Bunker Barge: A Buyer's Reference | Fincantieri Marine Group</title>
+<meta name="description" content="A working reference for midstream operators and marine fuel companies specifying an LNG bunker barge build. Five specs that actually matter, the procurement traps, and the questions a Great Lakes shipyard asks before quoting.">
+<link rel="canonical" href="https://fincantierimarinegroup.com/insights/lng-bunker-barge-buyers-guide/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #050E1F;
+    --steel: #0E1A2E;
+    --steel-light: #1A2436;
+    --grey: #34404E;
+    --gold: #C9A03A;
+    --gold-bright: #E8B843;
+    --gold-deep: #A8852F;
+    --ivory: #EDE4D0;
+    --ivory-soft: rgba(237, 228, 208, 0.78);
+    --ivory-mute: rgba(237, 228, 208, 0.48);
+    --hair: rgba(201, 160, 58, 0.22);
+    --hair-strong: rgba(201, 160, 58, 0.4);
+    --paper: #F5F2EA;
+    --ink: #14181F;
+    --serif-ital: 'Cormorant Garamond', 'Didot', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.65;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+    opacity: 0.04; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
+  }
+  a { color: inherit; text-decoration: none; }
+  em.warm { font-family: var(--serif-ital); font-style: italic; font-weight: 400; color: var(--gold-deep); letter-spacing: -0.005em; }
+
+  /* Header */
+  header {
+    background: var(--navy);
+    color: var(--ivory);
+    border-bottom: 1px solid rgba(201, 160, 58, 0.25);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.12em; color: #fff; }
+  .logo .gold { color: var(--gold); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ivory-soft); text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-back {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    color: var(--gold); text-transform: uppercase; padding: 8px 14px;
+    border: 0.5px solid rgba(201, 160, 58, 0.5); transition: all .2s;
+  }
+  .nav-back:hover { background: var(--gold); color: var(--navy); }
+
+  /* Article cover */
+  .cover {
+    background: var(--navy); color: var(--ivory);
+    padding: 80px 0 72px;
+    border-bottom: 0.5px solid rgba(201, 160, 58, 0.3);
+    position: relative; overflow: hidden;
+  }
+  .cover-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1502920514313-52581002a659?w=2400&q=85');
+    background-size: cover; background-position: center;
+    opacity: 0.18; filter: grayscale(0.6);
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+  .crumbs {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    color: var(--ivory-mute); text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .crumbs a { color: var(--gold); }
+  .crumbs span.sep { margin: 0 8px; opacity: 0.5; }
+  .article-eyebrow {
+    display: flex; align-items: baseline; gap: 16px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.28em;
+    color: var(--gold); text-transform: uppercase; font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .article-eyebrow .pub-date { color: var(--ivory-mute); }
+  h1.title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6.4vw, 88px);
+    line-height: 0.96;
+    letter-spacing: 0.018em;
+    color: #fff;
+    max-width: 22ch;
+    margin-bottom: 28px;
+  }
+  h1.title em { font-family: var(--serif-ital); font-style: italic; font-weight: 300; color: var(--gold); }
+  .deck {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--ivory-soft);
+    max-width: 56ch;
+    line-height: 1.45;
+    margin-bottom: 36px;
+  }
+  .byline {
+    display: flex; gap: 56px; align-items: baseline;
+    border-top: 0.5px solid rgba(201, 160, 58, 0.4);
+    padding-top: 18px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    color: var(--ivory-mute); text-transform: uppercase;
+  }
+  .byline .item { display: flex; flex-direction: column; gap: 4px; }
+  .byline .k { color: var(--ivory-mute); }
+  .byline .v { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.08em; }
+  .byline .v .gold { color: var(--gold); }
+
+  /* Article body */
+  .article {
+    padding: 96px 0 80px;
+    background: var(--paper);
+  }
+  .article-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr 220px;
+    gap: 56px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .article-rail { padding-top: 6px; }
+  .article-rail .fig {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    color: var(--gold-deep); text-transform: uppercase; margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .article-rail .toc {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+    color: var(--grey); line-height: 2.2; text-transform: uppercase;
+    border-top: 0.5px solid var(--hair-strong); padding-top: 14px;
+  }
+  .article-rail .toc a { display: block; color: var(--grey); transition: color .2s; }
+  .article-rail .toc a:hover { color: var(--gold-deep); }
+
+  .article-body { max-width: 64ch; }
+  .article-body .lede {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: 22px; line-height: 1.5;
+    color: var(--grey);
+    margin-bottom: 36px;
+    letter-spacing: -0.005em;
+    border-bottom: 0.5px solid var(--hair);
+    padding-bottom: 28px;
+  }
+  .article-body p {
+    font-size: 16px; line-height: 1.78;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .article-body p strong { color: var(--navy); font-weight: 600; }
+  .article-body h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 0.04em;
+    color: var(--navy);
+    margin: 48px 0 14px;
+    line-height: 1.05;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .article-body h2 .num {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; color: var(--gold-deep); font-weight: 500;
+  }
+  .article-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.05em;
+    color: var(--navy);
+    margin: 28px 0 8px;
+    line-height: 1.1;
+  }
+  .article-body ul, .article-body ol {
+    margin: 14px 0 18px 22px;
+    font-size: 15.5px; line-height: 1.78;
+  }
+  .article-body ul li, .article-body ol li { margin-bottom: 6px; }
+  .article-body ul li strong, .article-body ol li strong { color: var(--navy); font-weight: 600; }
+  .article-body blockquote {
+    border-left: 1px solid var(--gold-deep);
+    padding: 6px 22px;
+    margin: 28px 0;
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: 19px; line-height: 1.5;
+    color: var(--navy);
+    max-width: 56ch;
+  }
+  .spec-callout {
+    margin: 24px 0;
+    padding: 22px 26px;
+    background: rgba(5, 14, 31, 0.04);
+    border-top: 0.5px solid var(--hair-strong);
+    border-bottom: 0.5px solid var(--hair-strong);
+  }
+  .spec-callout .label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    color: var(--gold-deep); text-transform: uppercase;
+    margin-bottom: 12px; display: block; font-weight: 500;
+  }
+  .spec-callout .row {
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    padding: 6px 0;
+    border-bottom: 0.5px solid rgba(40, 40, 50, 0.08);
+    font-size: 14px;
+  }
+  .spec-callout .row:last-child { border-bottom: 0; }
+  .spec-callout .row .k {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+    color: var(--grey); text-transform: uppercase;
+  }
+  .spec-callout .row .v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px; letter-spacing: 0.04em;
+    color: var(--navy);
+    text-align: right;
+  }
+  .spec-callout .row .v small {
+    font-family: var(--serif-ital); font-style: italic; font-weight: 400;
+    font-size: 0.6em; color: var(--gold-deep); margin-left: 3px;
+  }
+
+  .article-side {
+    padding-top: 6px;
+  }
+  .article-side .panel {
+    border-top: 0.5px solid var(--hair-strong);
+    padding-top: 14px;
+    margin-bottom: 36px;
+  }
+  .article-side .panel h4 {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+    color: var(--gold-deep); text-transform: uppercase;
+    margin-bottom: 12px; font-weight: 500;
+  }
+  .article-side .panel p, .article-side .panel ul {
+    font-size: 12.5px; line-height: 1.55; color: var(--grey);
+  }
+  .article-side .panel ul { list-style: none; }
+  .article-side .panel ul li {
+    border-bottom: 0.5px solid rgba(40, 40, 50, 0.08);
+    padding: 8px 0;
+  }
+  .article-side .panel ul li:last-child { border-bottom: 0; }
+  .article-side .panel ul li .vname {
+    font-family: 'Bebas Neue', sans-serif; font-size: 14px;
+    letter-spacing: 0.04em; color: var(--navy); display: block;
+    margin-bottom: 2px;
+  }
+  .article-side .panel ul li .vmeta {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+    color: var(--gold-deep); text-transform: uppercase;
+  }
+
+  /* Final CTA */
+  .article-cta {
+    background: var(--navy); color: var(--ivory);
+    padding: 72px 0;
+    margin-top: 72px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 0.5px solid rgba(201, 160, 58, 0.3);
+    position: relative; overflow: hidden;
+  }
+  .article-cta::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .article-cta .container { display: grid; grid-template-columns: 2fr 1fr; gap: 56px; align-items: center; }
+  .article-cta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: 0.02em;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    max-width: 18ch;
+  }
+  .article-cta h3 em { font-family: var(--serif-ital); font-style: italic; font-weight: 300; color: var(--gold); }
+  .article-cta p {
+    font-size: 15px; color: var(--ivory-soft); max-width: 48ch; line-height: 1.6;
+  }
+  .article-cta .cta-actions { display: flex; flex-direction: column; gap: 10px; }
+  .btn {
+    display: inline-block;
+    padding: 14px 24px;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn:hover { background: var(--gold-bright); }
+  .linkish {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    border-bottom: 0.5px solid var(--gold); padding: 0 0 8px;
+    transition: gap .2s, letter-spacing .2s;
+  }
+  .linkish:hover { gap: 14px; letter-spacing: 0.26em; }
+  .linkish .arrow { width: 14px; height: 0.5px; background: currentColor; position: relative; display: inline-block; }
+  .linkish .arrow::after {
+    content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px;
+    border-right: 0.5px solid currentColor; border-top: 0.5px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  /* Footer */
+  footer {
+    background: #06090C; color: var(--ivory);
+    padding: 72px 0 32px;
+    border-top: 0.5px solid var(--hair);
+  }
+  footer .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+  footer h5 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 14px;
+    letter-spacing: 0.18em; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  footer p, footer a { font-size: 13px; color: var(--ivory-mute); line-height: 1.7; }
+  footer a:hover { color: var(--gold); }
+  footer ul { list-style: none; }
+  .foot-bottom {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 0.5px solid rgba(232, 225, 212, 0.12);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    color: rgba(232, 225, 212, 0.45); text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    .article-grid { grid-template-columns: 1fr; gap: 36px; }
+    .article-rail, .article-side { display: none; }
+    .article-cta .container { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .nav-links { display: none; }
+    .cover { padding: 56px 0 48px; }
+    .article { padding: 56px 0; }
+    .article-cta { padding: 48px 0; }
+    footer .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    .byline { flex-wrap: wrap; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="/" class="logo">FINCANTIERI <span class="gold">MARINE GROUP</span></a>
+    <nav class="nav-links">
+      <a href="#">Markets</a>
+      <a href="#">Vessels</a>
+      <a href="#">Shipyards</a>
+      <a href="#">Insights</a>
+    </nav>
+    <a href="../" class="nav-back">&larr; Insights</a>
+  </div>
+</header>
+
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="container">
+    <div class="crumbs">
+      <a href="/">Home</a><span class="sep">·</span>
+      <a href="../">Insights</a><span class="sep">·</span>
+      <span>LNG Bunker Barge Buyer's Guide</span>
+    </div>
+    <div class="article-eyebrow">
+      <span>Capability Brief / Commercial</span>
+      <span class="pub-date">Published May 2026</span>
+    </div>
+    <h1 class="title">How to spec an <em>LNG bunker barge</em>.</h1>
+    <p class="deck">A working reference for midstream operators and marine fuel companies preparing to commission an LNG bunker barge build. Five specs that actually move a quote, the procurement traps that cost six figures, and the questions a Great Lakes shipyard asks before pricing.</p>
+    <div class="byline">
+      <div class="item"><span class="k">Reading Time</span><span class="v">8 MIN</span></div>
+      <div class="item"><span class="k">Audience</span><span class="v">MIDSTREAM &middot; <span class="gold">FUEL OPS</span></span></div>
+      <div class="item"><span class="k">Yard</span><span class="v">BAY SHIPBUILDING</span></div>
+      <div class="item"><span class="k">FIG.</span><span class="v"><span class="gold">07</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="article">
+  <div class="article-grid">
+
+    <aside class="article-rail">
+      <div class="fig">FIG. 07</div>
+      <div class="toc">
+        <a href="#why">01 The Shift</a>
+        <a href="#capacity">02 Capacity</a>
+        <a href="#hull">03 Hull Form</a>
+        <a href="#propulsion">04 Propulsion</a>
+        <a href="#manifold">05 Manifold</a>
+        <a href="#class">06 Classification</a>
+        <a href="#traps">07 Traps</a>
+      </div>
+    </aside>
+
+    <article class="article-body">
+      <p class="lede">If you are quoting an LNG bunker barge build, the answer to the first five questions a shipyard asks already determines half the price. Most operators answer the wrong five.</p>
+
+      <p>LNG as a marine fuel is no longer the experimental story it was a decade ago. Bunkering operations have moved out of the engineering pilot phase and into routine commercial supply. The number of LNG-fueled deepsea vessels in service crossed a threshold where dedicated bunker barges, not portable ISO tanks or shore-side flange transfers, became the operationally rational answer for most major ports.</p>
+
+      <p>That shift made the LNG bunker barge a real procurement category. It also exposed how few buyers, even sophisticated midstream operators, know how to specify one. The result is the same pattern repeating across quotes from three different yards: a build sheet that prices a 5,000 m&sup3; barge against a 3,000 m&sup3; barge against a 7,500 m&sup3; barge, all answering the same RFP, because the operator did not lock the inputs that drive cost.</p>
+
+      <p>This brief is the operator-side version of the conversation a shipyard wants to have. Five specs that move the quote. The traps that compound. And the questions to walk in with.</p>
+
+      <h2 id="why"><span class="num">01</span> The shift toward dedicated bunker barges</h2>
+      <p>Three factors pushed LNG bunkering off the dock and onto the water.</p>
+      <p>First, deepsea vessel growth. The order book for LNG-dual-fuel containerships, car carriers, and tankers compounded faster than shore-side bunkering infrastructure could keep up. Operators needed a way to bunker without occupying a berth, and the bunker barge became the answer the same way it has been for residual fuel oil for half a century.</p>
+      <p>Second, schedule density. A containership bunkering shore-side ties up a berth for hours that the port operator would rather sell to cargo. Ship-to-ship LNG transfer puts the bunkering operation on a separate vessel, in parallel with cargo ops, and recovers the berth.</p>
+      <p>Third, regulatory specificity. SIGTTO, ISO, and ABS guidance on marine LNG transfer matured to the point where a purpose-built barge is no longer an experimental asset. It is a classed vessel with a known regulatory envelope.</p>
+
+      <p>The buyer's job is to translate that envelope into a hull, a tank arrangement, and a transfer system that fits a specific port and a specific charter customer. That is where most procurement processes go sideways.</p>
+
+      <h2 id="capacity"><span class="num">02</span> Capacity, and the mistake of optimising for the headline number</h2>
+      <p>The first number every buyer wants on the spec sheet is total LNG capacity. It is also the number that is least useful in isolation.</p>
+
+      <p>What actually matters is <strong>delivered capacity per bunkering operation</strong>, which is a function of: total tank volume, the deadband between minimum and maximum operating fill levels, the boil-off allowance, and the time available within the receiving vessel's bunker window. A 6,500 m&sup3; barge that can only deliver 4,800 m&sup3; in a 4-hour window is operationally smaller than a 5,500 m&sup3; barge that delivers 4,800 m&sup3; in 3 hours.</p>
+
+      <p>Specify the operation, not the headline. Three questions to lock first:</p>
+      <ul>
+        <li><strong>Receiving vessel size envelope.</strong> Largest expected receiver, in cubic metres of LNG demand. Plan to the 90th percentile, not the median.</li>
+        <li><strong>Bunker window.</strong> The realistic time-on-station the receiving customer will allow. Most charter agreements clamp this between 4 and 8 hours.</li>
+        <li><strong>Operating cycle.</strong> Number of bunker ops per week the barge is expected to support, including reload cycles at the source terminal.</li>
+      </ul>
+
+      <div class="spec-callout">
+        <span class="label">Capacity Envelope · Working Range</span>
+        <div class="row"><span class="k">Total Tank Capacity</span><span class="v">3,000 <small>to 7,500 m&sup3;</small></span></div>
+        <div class="row"><span class="k">Typical Delivered Volume</span><span class="v">~78 <small>to 86% of total</small></span></div>
+        <div class="row"><span class="k">Bunker Window</span><span class="v">4 <small>to 8 hr</small></span></div>
+        <div class="row"><span class="k">Loading Rate (target)</span><span class="v">800 <small>to 1,500 m&sup3;/hr</small></span></div>
+      </div>
+
+      <h2 id="hull"><span class="num">03</span> Hull form: ATB, ITB, or self-propelled</h2>
+
+      <p>Three hull architectures dominate the current order book.</p>
+
+      <p><strong>Articulated tug barge (ATB).</strong> A dedicated tug locks into a notch on the barge's stern via a coupling system. Cheaper to build and crew than a self-propelled barge. Faster to redeploy: same tug can service multiple barges. The dominant choice for inland and coastal LNG bunkering routes.</p>
+
+      <p><strong>Integrated tug barge (ITB).</strong> Permanent, structurally rigid coupling. Operates as one unit at sea, separates only for major maintenance. Stronger seakeeping than ATB, marginally more expensive build, lower operational flexibility.</p>
+
+      <p><strong>Self-propelled bunker barge.</strong> Dedicated propulsion, often diesel-electric or LNG-dual-fuel itself. Higher build cost, higher crew cost, but no notch interface to maintain. Worth it for high-utilisation routes.</p>
+
+      <p>The choice cascades into hull length, beam, and propulsion. It also cascades into shipyard selection. A Great Lakes commercial shipyard with multiple ATB hulls in its history will quote an ATB build differently than a Gulf Coast yard quoting one for the first time.</p>
+
+      <h2 id="propulsion"><span class="num">04</span> Propulsion (or, when "propulsion" really means "tug spec")</h2>
+      <p>For ATB configurations, the propulsion conversation is split: the tug carries the engines, the barge carries the cargo. The buyer is specifying two assets, not one. The temptation to under-spec the tug is the single most common, and most expensive, procurement mistake in this category.</p>
+
+      <p>A tug under-rated for the loaded barge in coupled operation will cost the operator either in transit time, in fuel, or in coupling-system wear. All three compound. Re-engining a tug five years into service to recover bunker-window margins is roughly as expensive as the original tug.</p>
+
+      <p>For self-propelled hulls, the live conversation is dual-fuel versus diesel-only. Operating a diesel-only LNG bunker barge in 2026 reads, to charterers and to port authorities, as inconsistent. Dual-fuel adds capital cost and saves it back in three to five years through reduced compliance friction and a cleaner sustainability narrative for charter customers.</p>
+
+      <h2 id="manifold"><span class="num">05</span> Manifold and transfer system</h2>
+      <p>The manifold is where most cost surprises live. SIGTTO compliance, ESD-1 and ESD-2 emergency shutdown integration, dry-disconnect couplings, vapour return management, and bunker meter calibration are all real engineering line items that the headline-capacity-number conversation tends to gloss over.</p>
+
+      <p>Three things to specify early:</p>
+      <ul>
+        <li><strong>Hose handling.</strong> Reel-mounted, crane-deployed, or composite. Drives weather window and crew workload.</li>
+        <li><strong>Vapour return.</strong> Line size and isolation. Drives bunker rate at high-fill conditions.</li>
+        <li><strong>Bunker metering.</strong> Coriolis vs ultrasonic. Drives invoice accuracy and dispute frequency. Charter customers care.</li>
+      </ul>
+
+      <h2 id="class"><span class="num">06</span> Classification, flag, and what the yard actually builds to</h2>
+      <p>For a US-flag bunker barge serving US ports, the working envelope is ABS class, USCG Subchapter D for tank vessels, IGC Code for the cargo containment system, and Jones Act compliance for the build. The yard's experience inside that exact envelope is worth more than its experience inside a comparable European or Asian regulatory frame.</p>
+
+      <p>A US shipyard that has delivered ATB hulls and LNG-capable tank vessels under ABS class and USCG inspection is operating in a regulatory groove the design will fit. A yard quoting outside that groove will price it as bespoke. The price difference is rarely small.</p>
+
+      <h2 id="traps"><span class="num">07</span> The procurement traps that compound</h2>
+      <p>Three patterns recur often enough to be procurement-side red flags:</p>
+
+      <ol>
+        <li><strong>Optimising the barge against the median customer instead of the worst-case customer.</strong> Charter renewals are won on the largest receiving vessel the barge can handle, not the average one.</li>
+        <li><strong>Treating the tug as an afterthought.</strong> See Section 04. Re-engining costs roughly equal a new tug.</li>
+        <li><strong>Skipping the operating-cycle interview.</strong> The barge that perfectly fits one route is often the wrong barge for the route the operator actually charters six months later. Build the spec around a flexible operating envelope, not a single trade.</li>
+      </ol>
+
+      <blockquote>The cheapest barge to procure is the barge that fits the second charter. The most expensive is the one perfectly built for the first.</blockquote>
+
+      <p>The follow-on conversation a shipyard wants to have is not about price. It is about charter context, port pair flexibility, and the operating envelope the barge needs to survive the first two charter renewals. A yard quoting without that context is quoting a hull, not a vessel.</p>
+
+      <h2><span class="num">&middot;</span> Where to start</h2>
+      <p>If LNG bunker barge procurement is on the next 18 months of capital plan, the conversation worth having before any RFP is the one with a yard that has built ATB hulls, LNG-capable tank vessels, and operates in the US-flag regulatory envelope. Bay Shipbuilding has all three on its build history. Marinette has the engineering depth. ACE Marine handles the aluminum specialty work that often pairs with the bunker operation.</p>
+
+      <p>Start with the operating envelope, not the hull. The hull falls out of the envelope. Most procurement that goes wrong begins by building backwards.</p>
+
+    </article>
+
+    <aside class="article-side">
+
+      <div class="panel">
+        <h4>The Yard</h4>
+        <p>Fincantieri Bay Shipbuilding, Sturgeon Bay, Wisconsin. The largest commercial shipyard on the Great Lakes. Specialises in articulated tug barge units, LNG bunker barges, and self-unloading bulkers.</p>
+      </div>
+
+      <div class="panel">
+        <h4>Reference Vessels</h4>
+        <ul>
+          <li>
+            <span class="vname">LNG Bunker Barge</span>
+            <span class="vmeta">Cap. 5,500 m&sup3; &middot; ATB</span>
+          </li>
+          <li>
+            <span class="vname">ATB · Crowley</span>
+            <span class="vmeta">Petroleum &middot; US-flag</span>
+          </li>
+          <li>
+            <span class="vname">ATB · Moran Towing</span>
+            <span class="vmeta">Coastal &middot; US-flag</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h4>Companion Reading</h4>
+        <ul>
+          <li>
+            <span class="vname">ATB Construction</span>
+            <span class="vmeta">Buyer Reference</span>
+          </li>
+          <li>
+            <span class="vname">Self-Unloading Bulker</span>
+            <span class="vmeta">Operator Brief</span>
+          </li>
+          <li>
+            <span class="vname">Jones Act Shipbuilders</span>
+            <span class="vmeta">Sourcing Note</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h4>The Group</h4>
+        <p>The American shipyard of Fincantieri S.p.A. 7,000+ ships built across 228 years of yard history. 18 yards on four continents. A Great Lakes builder backed by a global network.</p>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+<section class="article-cta">
+  <div class="container">
+    <div>
+      <h3>Ready to start the <em>real conversation</em>?</h3>
+      <p>If LNG bunker barge procurement is on the capital plan, Bay Shipbuilding is the right opening conversation. Bring the operating envelope. We'll handle the hull.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="#" class="btn">Request Capabilities</a>
+      <a href="#" class="linkish">Schedule a yard tour <span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h5>Fincantieri Marine Group</h5>
+        <p>Three Wisconsin shipyards plus a Florida repair facility. The American manufacturing arm of Fincantieri S.p.A. Building the ships that supply, protect, and connect.</p>
+      </div>
+      <div>
+        <h5>Insights</h5>
+        <ul>
+          <li><a href="../">All Briefs</a></li>
+          <li><a href="../articulated-tug-barge-construction/">ATB Construction</a></li>
+          <li><a href="#">Self-Unloading Bulker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="tel:9207359700">(920) 735-9700</a></li>
+          <li><a href="mailto:info@fincantierimarinegroup.com">info@fincantierimarinegroup.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; MMXXVI Fincantieri Marine Group LLC &middot; A Fincantieri S.p.A. Company</span>
+      <span>Brief 07 / Commercial</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

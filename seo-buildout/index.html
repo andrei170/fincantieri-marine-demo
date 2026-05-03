@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SEO Buildout Proposal · Fincantieri Marine Group · AG1 Consulting</title>
+<meta name="description" content="A 90-day organic search buildout proposal prepared for Fincantieri Marine Group by AG1 Consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #050E1F;
+    --steel: #0E1A2E;
+    --grey: #34404E;
+    --grey-light: #6B7785;
+    --gold: #C9A03A;
+    --gold-deep: #A8852F;
+    --ivory: #EDE4D0;
+    --ivory-soft: rgba(60, 60, 70, 0.78);
+    --ivory-mute: rgba(60, 60, 70, 0.55);
+    --hair: rgba(201, 160, 58, 0.32);
+    --hair-deep: rgba(40, 40, 50, 0.18);
+    --paper: #F7F4ED;
+    --ink: #1A1F2C;
+    --serif-ital: 'Cormorant Garamond', 'Didot', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #4a4a4a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.55;
+  }
+
+  /* Page = US Letter, 8.5 x 11 in */
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 32px auto;
+    background: var(--paper);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    padding: 0.7in 0.78in;
+    color: var(--ink);
+  }
+  .page::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    opacity: 0.035; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
+  }
+
+  em.warm {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    color: var(--gold-deep);
+    letter-spacing: -0.01em;
+  }
+  em.cool {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; line-height: 1.0; }
+  .mono { font-family: var(--mono); }
+
+  /* ───── PAGE HEADER STRIP (every page except cover) ───── */
+  .page-strip {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px;
+    border-bottom: 0.5px solid var(--hair);
+    margin-bottom: 38px;
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ivory-soft);
+  }
+  .page-strip .doc-id { color: var(--gold-deep); font-weight: 500; }
+
+  /* ───── PAGE FOOTER STRIP ───── */
+  .page-foot {
+    position: absolute;
+    bottom: 0.42in; left: 0.78in; right: 0.78in;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-top: 12px;
+    border-top: 0.5px solid var(--hair);
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ivory-mute);
+  }
+  .page-foot .pg-num { color: var(--gold-deep); font-weight: 500; }
+  .page-foot .pg-mark { color: var(--ivory-soft); }
+
+  /* ───── COVER ───── */
+  .cover {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 0.78in 0.78in 0.6in;
+    display: flex; flex-direction: column;
+  }
+  .cover::after { opacity: 0.08; mix-blend-mode: overlay; }
+  .cover-mark {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 0.5px solid rgba(201, 160, 58, 0.4);
+    padding-bottom: 14px;
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(237, 228, 208, 0.78);
+  }
+  .cover-mark .gold { color: var(--gold); font-weight: 500; }
+  .cover-stack {
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 0 24px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.32em;
+    color: var(--gold);
+    margin-bottom: 36px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cover-eyebrow::before {
+    content: ""; display: inline-block; width: 28px; height: 1px;
+    background: var(--gold); margin-right: 12px; vertical-align: middle;
+  }
+  .cover h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 92px;
+    line-height: 0.92;
+    letter-spacing: 0.018em;
+    color: #fff;
+    max-width: 11ch;
+    margin-bottom: 32px;
+  }
+  .cover h1 em { font-family: var(--serif-ital); font-style: italic; font-weight: 300; color: var(--gold); }
+  .cover-sub {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: 22px;
+    color: rgba(237, 228, 208, 0.92);
+    max-width: 32ch;
+    line-height: 1.35;
+    margin-bottom: 56px;
+    letter-spacing: -0.005em;
+  }
+  .cover-meta {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 0.5px solid rgba(201, 160, 58, 0.4);
+    padding-top: 22px;
+  }
+  .cover-meta .item { display: flex; flex-direction: column; gap: 4px; }
+  .cover-meta .k {
+    font-family: var(--mono);
+    font-size: 8.5px; letter-spacing: 0.22em;
+    color: rgba(237, 228, 208, 0.6);
+    text-transform: uppercase;
+  }
+  .cover-meta .v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.04em;
+    color: #fff;
+  }
+  .cover-foot {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-top: 14px;
+    border-top: 0.5px solid rgba(201, 160, 58, 0.4);
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em;
+    color: rgba(237, 228, 208, 0.6);
+    text-transform: uppercase;
+  }
+  .cover-foot .gold { color: var(--gold); font-weight: 500; }
+
+  /* ───── INNER PAGE TYPOGRAPHY ───── */
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.24em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  h2.sec-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    line-height: 1.0;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 22ch;
+  }
+  h2.sec-title em { font-family: var(--serif-ital); font-style: italic; font-weight: 400; color: var(--gold-deep); }
+  .lede {
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: 17px;
+    color: var(--grey);
+    line-height: 1.45;
+    max-width: 56ch;
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+  p.body {
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 72ch;
+    margin-bottom: 14px;
+  }
+  p.body strong { color: var(--navy); font-weight: 600; }
+
+  h3.subhead {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 19px;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 8px;
+    margin-top: 18px;
+  }
+  h3.subhead .mono-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold-deep);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  ul.body, ol.body {
+    margin: 0 0 14px 18px;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 72ch;
+  }
+  ul.body li, ol.body li { margin-bottom: 4px; }
+  ul.body strong, ol.body strong { color: var(--navy); font-weight: 600; }
+
+  /* Tables / spec rows */
+  .row-table {
+    margin: 8px 0 14px;
+    border-top: 0.5px solid var(--hair);
+  }
+  .row-table .row {
+    display: grid; grid-template-columns: 1.4fr 2fr 1fr;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--hair-deep);
+    font-size: 11px;
+    align-items: baseline;
+  }
+  .row-table .row .k {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .row-table .row .v { color: var(--ink); }
+  .row-table .row .n {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    text-align: right;
+  }
+
+  /* Stat tile (used in projections) */
+  .tiles {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 0.5px solid var(--hair);
+    border-bottom: 0.5px solid var(--hair);
+    margin: 14px 0;
+  }
+  .tile { padding: 16px 14px; border-right: 0.5px solid var(--hair-deep); }
+  .tile:last-child { border-right: 0; }
+  .tile .k {
+    font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.2em;
+    color: var(--gold-deep); text-transform: uppercase; font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .tile .v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 0.02em;
+    color: var(--navy); line-height: 1.0;
+    margin-bottom: 6px;
+  }
+  .tile .v small {
+    font-family: var(--serif-ital); font-style: italic; font-weight: 400;
+    font-size: 0.42em; color: var(--gold-deep); margin-left: 3px;
+  }
+  .tile .n {
+    font-size: 10px; line-height: 1.4; color: var(--grey);
+  }
+
+  /* Vector card */
+  .vec {
+    border-top: 0.5px solid var(--hair);
+    padding: 16px 0 4px;
+    display: grid; grid-template-columns: 90px 1fr;
+    gap: 18px;
+  }
+  .vec .v-num {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-top: 4px;
+  }
+  .vec .v-num strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 0.02em;
+    color: var(--navy);
+    display: block;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .vec .v-body { padding-bottom: 4px; }
+  .vec h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .vec p {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+  .vec .targets {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--gold-deep);
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+  .vec .targets strong { color: var(--navy); font-weight: 500; letter-spacing: 0.04em; }
+
+  /* Phase block (timeline) */
+  .phase {
+    display: grid; grid-template-columns: 90px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 0.5px solid var(--hair);
+  }
+  .phase:last-child { border-bottom: 0.5px solid var(--hair); }
+  .phase .p-meta {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .phase .p-meta strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.02em;
+    color: var(--navy); display: block; margin-top: 4px;
+    font-weight: 400;
+  }
+  .phase h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.04em;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .phase p { font-size: 11px; color: var(--ink); line-height: 1.55; margin-bottom: 4px; }
+  .phase ul { margin-left: 18px; font-size: 10.5px; line-height: 1.55; color: var(--ink); }
+
+  /* Pull-quote block */
+  .pull {
+    border-left: 1px solid var(--gold-deep);
+    padding: 4px 16px;
+    margin: 18px 0;
+    font-family: var(--serif-ital);
+    font-style: italic; font-weight: 400;
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.45;
+    max-width: 56ch;
+  }
+
+  /* Disclaimer / appendix box */
+  .note {
+    border: 0.5px solid var(--hair);
+    background: rgba(201, 160, 58, 0.05);
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 10px;
+    color: var(--grey);
+    line-height: 1.55;
+    max-width: 72ch;
+  }
+  .note .label {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.2em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-bottom: 4px; display: block;
+    font-weight: 500;
+  }
+
+  /* Final CTA strip */
+  .cta-strip {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 28px 24px;
+    margin-top: 26px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    position: relative;
+  }
+  .cta-strip::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    opacity: 0.06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .cta-strip h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 0.02em;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .cta-strip h3 em { font-family: var(--serif-ital); font-style: italic; font-weight: 300; color: var(--gold); }
+  .cta-strip p {
+    font-size: 11px; color: rgba(237, 228, 208, 0.82);
+    max-width: 60ch; line-height: 1.55; margin-bottom: 16px;
+  }
+  .cta-strip .meet {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 0.5px solid rgba(201, 160, 58, 0.4);
+    padding-top: 14px;
+  }
+  .cta-strip .meet .k {
+    font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.22em;
+    color: rgba(237, 228, 208, 0.6); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .cta-strip .meet .v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px; letter-spacing: 0.04em;
+    color: var(--gold);
+  }
+  .cta-strip .meet .v small { font-family: var(--serif-ital); font-style: italic; font-weight: 300; font-size: 0.55em; color: rgba(237, 228, 208, 0.7); margin-left: 3px; }
+
+  /* Sign block */
+  .sign {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 0.5px solid var(--hair);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .sign .col h5 {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em;
+    color: var(--gold-deep); text-transform: uppercase;
+    margin-bottom: 8px; font-weight: 500;
+  }
+  .sign .col p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .sign .col .name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.04em;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  /* ───── PRINT MEDIA ───── */
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      width: 8.5in;
+      height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+    .print-hide { display: none !important; }
+  }
+
+  /* Print prompt (only on screen) */
+  .print-prompt {
+    position: fixed; top: 16px; right: 16px;
+    background: var(--navy); color: var(--ivory);
+    padding: 10px 16px;
+    border: 0.5px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; cursor: pointer;
+    z-index: 100; font-weight: 500;
+  }
+  .print-prompt:hover { background: var(--gold); color: var(--navy); }
+</style>
+</head>
+<body>
+
+<button class="print-prompt print-hide" onclick="window.print()">Print / Save as PDF</button>
+
+<!-- ═══════════════ PAGE 1 — COVER ═══════════════ -->
+<div class="page cover">
+  <div class="cover-mark">
+    <span><span class="gold">AG1</span> CONSULTING · ANDREI GIVERO</span>
+    <span>DOC 01 / 2026 · CONFIDENTIAL</span>
+  </div>
+
+  <div class="cover-stack">
+    <div class="cover-eyebrow">Proposal · 90-Day Buildout</div>
+    <h1>Search<br>Visibility<br><em>Buildout.</em></h1>
+    <p class="cover-sub">A structured 90-day program to expand commercial vessel inquiry pipeline through organic search.</p>
+
+    <div class="cover-meta">
+      <div class="item">
+        <span class="k">Prepared For</span>
+        <span class="v">FINCANTIERI<br>MARINE GROUP</span>
+      </div>
+      <div class="item">
+        <span class="k">Engagement</span>
+        <span class="v">90-DAY<br>BUILDOUT</span>
+      </div>
+      <div class="item">
+        <span class="k">Proposal Date</span>
+        <span class="v">MAY 2026</span>
+      </div>
+      <div class="item">
+        <span class="k">Authored By</span>
+        <span class="v">A. GIVERO<br>AG1</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-foot">
+    <span>FIG. 00 · COVER</span>
+    <span class="gold">ANDREI170.GITHUB.IO/AG1</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 — EXECUTIVE SUMMARY ═══════════════ -->
+<div class="page">
+  <div class="page-strip">
+    <span>SEO Buildout · Fincantieri Marine Group</span>
+    <span class="doc-id">02 — Executive Summary</span>
+  </div>
+
+  <div class="sec-num">02 · Executive Summary</div>
+  <h2 class="sec-title">A measured search expansion <em>for the commercial side</em>.</h2>
+  <p class="lede">Defense contracts move through RFPs. Commercial vessel buyers, by contrast, search. This proposal is built for the second.</p>
+
+  <p class="body">Fincantieri Marine Group sits inside a Fincantieri S.p.A. production network with 7,000+ ships across 228 years of yard history, &euro;9.2 billion in 2025 group revenue, and a 97-vessel order book through 2037. The brand authority is overwhelming. The website does not reflect it.</p>
+
+  <p class="body">A live audit of fincantierimarinegroup.com surfaces a WordPress + Oxygen build with 2019 to 2021 image quality, a 50+ item mega-menu masking the vessel taxonomy, and a generic contact CTA. For a defense-grade subsidiary, the digital surface lags the brand by roughly half a decade.</p>
+
+  <p class="body">The 90-day proposal outlined in this document does not target the Navy or Coast Guard procurement track. It targets the <strong>commercial vessel inquiry pipeline</strong>: ATB operators searching for shipyards, midstream operators sourcing LNG bunker barge capacity, Great Lakes commercial buyers researching self-unloading bulkers, and the long tail of capability research that precedes a multi-million-dollar conversation.</p>
+
+  <h3 class="subhead">In one paragraph</h3>
+  <p class="body">Audit and resurface the existing site. Rebuild capability pages as cornerstone content per vessel class. Architect a Wisconsin maritime authority cluster around the three yards. Capture commercial keyword inventory FMG already ranks for, and add the long-tail terms FMG should rank for. Measure inquiry pipeline, not vanity traffic. Defense contracts continue moving through their own channel. This work runs alongside, not against.</p>
+
+  <div class="note">
+    <span class="label">Document Scope</span>
+    The proposal that follows is technical and conservative. Search benchmarks are referenced in ranges, not promises. Defense-vertical SEO has limited public benchmarking; commercial maritime is better-documented and forms the basis of this engagement's projection envelope.
+  </div>
+
+  <div class="page-foot">
+    <span>SEO Buildout Proposal · v1 · May 2026</span>
+    <span><span class="pg-num">02</span> <span class="pg-mark">/ 06</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 3 — CURRENT SITE FINDINGS ═══════════════ -->
+<div class="page">
+  <div class="page-strip">
+    <span>SEO Buildout · Fincantieri Marine Group</span>
+    <span class="doc-id">03 — Current Site Findings</span>
+  </div>
+
+  <div class="sec-num">03 · Current Site Findings</div>
+  <h2 class="sec-title">Five gaps between the brand and the digital surface.</h2>
+  <p class="lede">Audit pass on fincantierimarinegroup.com, May 2026.</p>
+
+  <div class="row-table">
+    <div class="row">
+      <span class="k">Finding 01 · Photography</span>
+      <span class="v">Vessel imagery uploaded 2019 to 2021. Inconsistent crop ratios, weak compression, multiple H2-on-image template artifacts. For a builder of Constellation-class frigates and Polar Security Cutters, the photography fails the brand on first frame.</span>
+      <span class="n">3 / 10</span>
+    </div>
+    <div class="row">
+      <span class="k">Finding 02 · Architecture</span>
+      <span class="v">Mega-menu hides 50+ vessel-taxonomy items behind nested dropdowns. No scannable vessel grid on the homepage. Markets surface, but vessel classes beneath them are buried two clicks deep. Bad for users, worse for crawlers.</span>
+      <span class="n">4 / 10</span>
+    </div>
+    <div class="row">
+      <span class="k">Finding 03 · Capability Pages</span>
+      <span class="v">Vessel pages exist but are under-built as cornerstone content. Spec sheets are thin. Case-study coverage is light. Each vessel class is a potential top-of-funnel keyword target left thin.</span>
+      <span class="n">5 / 10</span>
+    </div>
+    <div class="row">
+      <span class="k">Finding 04 · CTAs</span>
+      <span class="v">Single generic Contact CTA across the site. No per-vessel "Request capabilities document," no "Schedule a yard tour," no segmented intake by market or vessel class. Inquiries flow into one inbox without context.</span>
+      <span class="n">4 / 10</span>
+    </div>
+    <div class="row">
+      <span class="k">Finding 05 · Mobile</span>
+      <span class="v">Oxygen Builder defaults render passably, but the mega-menu collapses awkwardly on phones and the small vessel photos look weaker at narrow widths. Mobile-first indexing is the default; the site is desktop-first by design.</span>
+      <span class="n">5 / 10</span>
+    </div>
+  </div>
+
+  <p class="body">Three of these gaps are SEO-critical: the architecture, the capability pages, and the mobile rendering. Two are brand-critical: the photography and the CTA flow. The 90-day buildout addresses all five.</p>
+
+  <div class="pull">
+    The strongest social-proof asset Fincantieri owns is the parent group. The current site does not lead with it. Visitors land on a generic vessel grid before they learn the company is part of a 228-year, 18-yard, 7,000-ship operation.
+  </div>
+
+  <p class="body">A single editorial above-the-fold change, parent-group stat band leading the homepage, lifts perceived authority before any keyword work begins. A reference build of this change is available at <strong>andrei170.github.io/fincantieri-marine-demo</strong>.</p>
+
+  <div class="page-foot">
+    <span>SEO Buildout Proposal · v1 · May 2026</span>
+    <span><span class="pg-num">03</span> <span class="pg-mark">/ 06</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 4 — THREE BUILDOUT VECTORS ═══════════════ -->
+<div class="page">
+  <div class="page-strip">
+    <span>SEO Buildout · Fincantieri Marine Group</span>
+    <span class="doc-id">04 — Three Buildout Vectors</span>
+  </div>
+
+  <div class="sec-num">04 · Three Buildout Vectors</div>
+  <h2 class="sec-title">Three concentrated vectors, <em>not a hundred small fixes</em>.</h2>
+  <p class="lede">Each vector targets a specific buyer segment FMG already serves. None of them touches the federal RFP track.</p>
+
+  <div class="vec">
+    <div class="v-num">Vector<strong>01</strong></div>
+    <div class="v-body">
+      <h4>Commercial Vessel Keyword Expansion</h4>
+      <p>Long-tail commercial buyer terms with high deal-value-per-search. Low competition, low monthly volume, and four-figure to six-figure deal sizes per converted inquiry. The pipeline math works at single-digit monthly searches.</p>
+      <p class="targets">
+        <strong>Targets:</strong> LNG bunker barge builder · articulated tug barge construction · Great Lakes shipyard · self-unloading bulker shipyard · platform support vessel builder USA · custom commercial vessel design · Jones Act shipbuilder · ship repair Wisconsin · commercial drydock Great Lakes
+      </p>
+    </div>
+  </div>
+
+  <div class="vec">
+    <div class="v-num">Vector<strong>02</strong></div>
+    <div class="v-body">
+      <h4>Capability-Page Architecture</h4>
+      <p>Each vessel class becomes a cornerstone page, structured as a top-of-funnel resource. Specs, hull form, propulsion, classification society approvals, sample build references, and a vessel-specific CTA. Pages link laterally to related classes and vertically to the parent yard.</p>
+      <p class="targets">
+        <strong>Pages built:</strong> Constellation-Class Frigate · Polar Security Cutter · LNG Bunker Barge · Articulated Tug Barge · Platform Support Vessel · Wind Farm Service Vessel · Self-Unloading Bulker · Cutter-Suction Dredge · Passenger Ferry · Repair &amp; Refit · Custom Build · Capabilities Index
+      </p>
+    </div>
+  </div>
+
+  <div class="vec">
+    <div class="v-num">Vector<strong>03</strong></div>
+    <div class="v-body">
+      <h4>Wisconsin Maritime Authority Cluster</h4>
+      <p>Three yards, three localised authority hubs. Marinette Marine for naval combatants, Bay Shipbuilding for Great Lakes commercial, ACE Marine for aluminum specialty craft. Each yard hub anchors a content cluster of vessel pages, capability case studies, and regional maritime authority signals (trade press citations, classification society pages, federal contractor directories).</p>
+      <p class="targets">
+        <strong>Hubs:</strong> Marinette, WI · Sturgeon Bay, WI · Green Bay, WI · plus a unified "Three Yards / One Group" architectural spine that re-uses the parent-group social-proof band on every yard hub.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>SEO Buildout Proposal · v1 · May 2026</span>
+    <span><span class="pg-num">04</span> <span class="pg-mark">/ 06</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 5 — TIMELINE + PROJECTION ═══════════════ -->
+<div class="page">
+  <div class="page-strip">
+    <span>SEO Buildout · Fincantieri Marine Group</span>
+    <span class="doc-id">05 — 90-Day Plan &amp; Projection</span>
+  </div>
+
+  <div class="sec-num">05 · 90-Day Plan</div>
+  <h2 class="sec-title">A phased 90-day plan with <em>visible milestones</em>.</h2>
+
+  <div class="phase">
+    <div class="p-meta">Phase 01<strong>Days 1–30</strong></div>
+    <div>
+      <h4>Audit, Foundation, &amp; Quick Wins</h4>
+      <p>Full technical audit. Core Web Vitals pass. Schema markup. Image compression and alt-text rebuild. Sitemap, robots, indexability sweep. Editorial homepage rebuild leading with the parent-group stat band (reference build already available).</p>
+      <ul>
+        <li>Technical audit + crawl report (Screaming Frog + manual)</li>
+        <li>Image weight reduction and lazy-load pass</li>
+        <li>Schema rollout: Organization, Product (vessel class), LocalBusiness (per yard)</li>
+        <li>Homepage parent-group lead-in shipped to staging</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="p-meta">Phase 02<strong>Days 31–60</strong></div>
+    <div>
+      <h4>Capability Architecture &amp; Cornerstone Content</h4>
+      <p>Twelve vessel-class cornerstone pages built and cross-linked. Capability index page architected. Each yard page rebuilt as a localised authority hub. Internal-link graph rewired around vessel-class cornerstones.</p>
+      <ul>
+        <li>12 cornerstone vessel pages, ~1,800–2,400 words each</li>
+        <li>Three yard authority hubs (Marinette, Sturgeon Bay, Green Bay)</li>
+        <li>Per-vessel CTA templates (capabilities document, yard tour, custom RFI)</li>
+        <li>Internal-link audit and rewire</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="p-meta">Phase 03<strong>Days 61–90</strong></div>
+    <div>
+      <h4>Authority Signals, Tracking, &amp; Reporting</h4>
+      <p>Trade press outreach for citations. Classification society and Jones Act directory listings. Federal contractor directory hygiene. GA4 + Search Console wired to inquiry-attribution dashboard. Monthly performance reporting cadence locked.</p>
+      <ul>
+        <li>10–15 trade press / industry directory citation acquisitions</li>
+        <li>Inquiry attribution (vessel class, yard, source) live in dashboard</li>
+        <li>Position-tracking baseline locked across the keyword inventory</li>
+        <li>Month-3 report and quarter-2 roadmap</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-num" style="margin-top: 22px;">06 · Projected Outcomes</div>
+  <h2 class="sec-title" style="font-size: 32px; margin-bottom: 14px;">Range-based, not promised.</h2>
+
+  <div class="tiles">
+    <div class="tile">
+      <span class="k">Indexed Pages</span>
+      <div class="v">+30 <small>to +45</small></div>
+      <div class="n">New cornerstone &amp; cluster pages live by Day 90.</div>
+    </div>
+    <div class="tile">
+      <span class="k">Tracked Keywords</span>
+      <div class="v">120 <small>to 180</small></div>
+      <div class="n">Commercial-buyer terms ranked Top-30, by Day 90.</div>
+    </div>
+    <div class="tile">
+      <span class="k">Inquiry Pipeline</span>
+      <div class="v">Quarter 2</div>
+      <div class="n">First measurable inquiry uplift typical Days 90 to 180.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="label">Disclaimer</span>
+    Defense and commercial maritime SEO operate on longer timelines than consumer verticals. Visible ranking movement on long-tail commercial terms typically begins between Days 60 and 90. Inquiry pipeline lift is a 6-to-9-month indicator, not a 90-day one. The 90-day envelope above is the buildout, not the harvest.
+  </div>
+
+  <div class="page-foot">
+    <span>SEO Buildout Proposal · v1 · May 2026</span>
+    <span><span class="pg-num">05</span> <span class="pg-mark">/ 06</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 6 — ENGAGEMENT + CTA ═══════════════ -->
+<div class="page">
+  <div class="page-strip">
+    <span>SEO Buildout · Fincantieri Marine Group</span>
+    <span class="doc-id">07 — Engagement</span>
+  </div>
+
+  <div class="sec-num">07 · Engagement</div>
+  <h2 class="sec-title">What the engagement <em>covers</em>.</h2>
+
+  <div class="row-table">
+    <div class="row">
+      <span class="k">Scope</span>
+      <span class="v">90-day buildout, defined in Phase 01–03 above. Optional ongoing retainer beginning Day 91 for content, link acquisition, and reporting cadence.</span>
+      <span class="n">90 DAYS</span>
+    </div>
+    <div class="row">
+      <span class="k">Deliverables</span>
+      <span class="v">Technical audit · 12 cornerstone vessel pages · 3 yard authority hubs · schema rollout · 10–15 citation acquisitions · GA4 + Search Console attribution dashboard · monthly reporting.</span>
+      <span class="n">~30 ASSETS</span>
+    </div>
+    <div class="row">
+      <span class="k">Reporting</span>
+      <span class="v">Day-30 baseline · Day-60 mid-buildout · Day-90 completion. Monthly thereafter. Reports written in plain English, not jargon. Inquiry attribution by vessel class and yard.</span>
+      <span class="n">3 + ONGOING</span>
+    </div>
+    <div class="row">
+      <span class="k">Investment</span>
+      <span class="v">Fixed-fee 90-day buildout. Pricing scoped to a defense-grade subsidiary engagement and provided in the engagement letter. Monthly retainer optional for Day 91+.</span>
+      <span class="n">ON REQUEST</span>
+    </div>
+    <div class="row">
+      <span class="k">Out of Scope</span>
+      <span class="v">Federal RFP response support. Paid media. Trade-show collateral. Public relations. Any work touching the Navy or Coast Guard procurement track.</span>
+      <span class="n">EXCLUDED</span>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <h3>Next Step. <em>One Conversation.</em></h3>
+    <p>Thirty minutes with whoever owns the FMG digital surface. Walk through the audit findings, the reference homepage build, and the three buildout vectors. Decide together whether the engagement is right for FMG before either side commits.</p>
+    <div class="meet">
+      <div>
+        <span class="k">Reference Build</span>
+        <span class="v">FINCANTIERI<small> · LIVE</small></span>
+      </div>
+      <div>
+        <span class="k">Hand-Delivered By</span>
+        <span class="v">N. <small>(AG1 ASSOC.)</small></span>
+      </div>
+      <div>
+        <span class="k">Contact</span>
+        <span class="v">A. GIVERO<small> · AG1</small></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="col">
+      <h5>Authored By</h5>
+      <p class="name">ANDREI GIVERO</p>
+      <p>AG1 Consulting · Founder</p>
+      <p>andreigivero@gmail.com</p>
+      <p>andrei170.github.io/ag1</p>
+    </div>
+    <div class="col">
+      <h5>Reference Build</h5>
+      <p class="name">FMG · v1.1</p>
+      <p>Parent-group lead-in homepage</p>
+      <p>andrei170.github.io/<br>fincantieri-marine-demo</p>
+      <p>Live as of May 2026</p>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>SEO Buildout Proposal · v1 · May 2026 · Confidential</span>
+    <span><span class="pg-num">06</span> <span class="pg-mark">/ 06</span></span>
+  </div>
+</div>
+
+</body>
+</html>
