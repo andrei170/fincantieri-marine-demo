@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fincantieri Marine Group &middot; Before vs After &middot; AG1 Consulting</title>
+<meta name="description" content="228 years at sea. &euro;9.2B parent revenue. &euro;63B backlog. Three Wisconsin shipyards. AI search lists Huntington Ingalls and General Dynamics first. Audit + 90-day plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #050E1F;
+  --steel: #0E1A2E;
+  --steel-light: #1A2436;
+  --gold: #C9A03A;
+  --gold-bright: #E8B843;
+  --gold-deep: #A8852F;
+  --ivory: #EDE4D0;
+  --ivory-soft: rgba(237, 228, 208, 0.78);
+  --ivory-mute: rgba(237, 228, 208, 0.55);
+  --line: rgba(201, 160, 58, 0.18);
+  --red-x: #c87f5a;
+  --green: #6b9b6b;
+  --display: 'Bebas Neue', Inter, sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--navy); color: var(--ivory); font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; letter-spacing: 0.002em; }
+a { color: var(--gold-bright); text-decoration: none; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+.hero { padding: 120px 0 80px; text-align: center; position: relative; }
+.hero::before { content: ''; position: absolute; top: 5%; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(201, 160, 58, 0.14), transparent 65%); filter: blur(80px); pointer-events: none; }
+.eyebrow { font-family: var(--display); font-size: 14px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: block; position: relative; z-index: 2; }
+.hero h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(48px, 7vw, 96px); line-height: 1; letter-spacing: -0.015em; max-width: 1080px; margin: 0 auto 32px; position: relative; z-index: 2; color: var(--ivory); }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero p { color: var(--ivory-soft); font-size: 18px; max-width: 760px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 2; }
+
+.section { padding: 80px 0; position: relative; }
+.section.alt { background: var(--steel); }
+.section-title { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(32px, 4vw, 56px); letter-spacing: -0.015em; line-height: 1.05; margin-bottom: 16px; color: var(--ivory); }
+.section-title em { font-style: italic; color: var(--gold); }
+.section-sub { color: var(--ivory-soft); font-size: 17px; margin-bottom: 56px; max-width: 760px; line-height: 1.7; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.compare-card { border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--steel); transition: all 0.3s; }
+.compare-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.compare-label { padding: 16px 24px; font-family: var(--display); font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; }
+.compare-label.current { background: rgba(200, 127, 90, 0.12); color: var(--red-x); border-bottom: 1px solid rgba(200, 127, 90, 0.3); }
+.compare-label.new { background: rgba(201, 160, 58, 0.12); color: var(--gold); border-bottom: 1px solid var(--line); }
+.compare-preview { aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+.compare-preview-content h3 { font-family: var(--serif); font-style: italic; font-size: 32px; font-weight: 400; }
+.compare-preview-content p { font-size: 14px; margin-top: 12px; }
+.compare-preview.current-bg { background: linear-gradient(135deg, var(--navy), var(--steel-light)); }
+.compare-preview.current-bg h3 { color: var(--ivory); }
+.compare-preview.current-bg p { color: var(--ivory-soft); }
+.compare-preview.new-bg { background: linear-gradient(135deg, var(--gold-deep), var(--navy)); }
+.compare-preview.new-bg h3 { color: var(--ivory); }
+.compare-preview.new-bg p { color: var(--ivory-soft); }
+.compare-body { padding: 28px 32px; }
+.compare-body h4 { font-family: var(--serif); font-style: italic; font-size: 24px; font-weight: 400; margin-bottom: 8px; color: var(--ivory); }
+.compare-body p { color: var(--ivory-soft); font-size: 14px; margin-bottom: 20px; line-height: 1.65; }
+.compare-body ul { list-style: none; margin-bottom: 24px; }
+.compare-body li { padding: 6px 0; font-size: 14px; color: var(--ivory-soft); display: flex; align-items: flex-start; gap: 10px; }
+.compare-body li::before { font-size: 12px; margin-top: 2px; flex-shrink: 0; font-weight: 700; }
+.current li::before { content: '\2717'; color: var(--red-x); }
+.new li::before { content: '\2713'; color: var(--green); }
+.compare-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 1px; font-family: var(--display); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; transition: all 0.25s; }
+.cta-current { border: 1px solid rgba(200, 127, 90, 0.4); color: var(--red-x); }
+.cta-current:hover { background: rgba(200, 127, 90, 0.08); }
+.cta-new { background: var(--gold); color: var(--navy); }
+.cta-new:hover { background: var(--gold-bright); }
+
+.bombshell-section { background: var(--steel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.bombshell-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+.bombshell-stat { font-family: var(--serif); font-style: italic; font-size: clamp(70px, 12vw, 180px); font-weight: 400; line-height: 1; color: var(--gold); letter-spacing: -0.02em; }
+.bombshell-stat em { font-style: italic; color: var(--gold-bright); }
+.bombshell-stat-sub { font-family: var(--mono); font-size: 18px; color: var(--ivory-soft); margin-top: 8px; }
+.bombshell-stat-label { font-family: var(--display); font-size: 14px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ivory-mute); margin-top: 18px; }
+.bombshell-content h2 { font-family: var(--serif); font-style: italic; font-size: clamp(32px, 4vw, 56px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; color: var(--ivory); }
+.bombshell-content h2 em { font-style: italic; color: var(--gold); }
+.bombshell-content p { color: var(--ivory-soft); font-size: 17px; line-height: 1.75; margin-bottom: 16px; }
+.bombshell-content p strong { color: var(--ivory); font-weight: 600; }
+
+.disparity-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 40px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--steel); }
+.disparity-row { display: grid; grid-template-columns: 1.6fr 1.4fr 1fr 1fr; align-items: center; padding: 22px 32px; border-bottom: 1px solid var(--line); }
+.disparity-row:last-child { border-bottom: none; }
+.disparity-row.header { background: var(--navy); font-family: var(--display); font-size: 12px; letter-spacing: 0.28em; color: var(--ivory-mute); padding: 18px 32px; }
+.disparity-row.you { background: rgba(201, 160, 58, 0.06); }
+.disparity-name { font-family: var(--serif); font-style: italic; font-size: 19px; font-weight: 400; color: var(--ivory); }
+.disparity-name.you { color: var(--gold); }
+.disparity-cell { font-size: 14px; color: var(--ivory-soft); }
+.disparity-cell strong { color: var(--ivory); font-weight: 600; }
+
+.plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+.plan-card { padding: 32px; background: var(--steel); border: 1px solid var(--line); border-radius: 2px; transition: all 0.3s; }
+.plan-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.plan-num { font-family: var(--display); font-size: 14px; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 16px; display: block; }
+.plan-card h4 { font-family: var(--serif); font-style: italic; font-size: 24px; font-weight: 400; line-height: 1.15; margin-bottom: 12px; color: var(--ivory); }
+.plan-card p { color: var(--ivory-soft); font-size: 14px; line-height: 1.65; }
+.plan-week { font-family: var(--display); font-size: 12px; letter-spacing: 0.22em; color: var(--gold-bright); margin-top: 16px; display: inline-block; }
+
+.scorecard { border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--steel); }
+.scorecard-header { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 24px 32px; background: var(--navy); border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 12px; letter-spacing: 0.28em; color: var(--ivory-mute); }
+.scorecard-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 18px 32px; border-bottom: 1px solid var(--line); align-items: center; }
+.scorecard-row:last-child { border-bottom: none; }
+.scorecard-row:hover { background: rgba(201, 160, 58, 0.04); }
+.scorecard-label { font-size: 15px; color: var(--ivory); }
+.scorecard-cell { font-size: 14px; }
+.scorecard-cell.current { color: var(--red-x); }
+.scorecard-cell.new { color: var(--green); font-weight: 600; }
+
+.cta-section { padding: 120px 0; text-align: center; }
+.cta-section h2 { font-family: var(--serif); font-style: italic; font-size: clamp(36px, 5vw, 64px); font-weight: 400; letter-spacing: -0.015em; margin-bottom: 24px; line-height: 1.05; color: var(--ivory); }
+.cta-section h2 em { font-style: italic; color: var(--gold); }
+.cta-section p { color: var(--ivory-soft); font-size: 17px; margin-bottom: 40px; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-button { display: inline-flex; align-items: center; gap: 8px; padding: 18px 40px; border-radius: 1px; font-family: var(--display); font-size: 13px; letter-spacing: 0.22em; transition: all 0.25s; }
+.cta-button.primary { background: var(--gold); color: var(--navy); }
+.cta-button.primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+.cta-button.ghost { border: 1px solid var(--line); color: var(--ivory); }
+.cta-button.ghost:hover { border-color: var(--gold); }
+
+footer { padding: 32px 0; border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: var(--ivory-mute); }
+footer a { color: var(--gold); }
+
+@media (max-width: 1024px) { .compare-grid { grid-template-columns: 1fr; } .bombshell-grid { grid-template-columns: 1fr; gap: 32px; } .plan-grid { grid-template-columns: 1fr 1fr; } .disparity-row { grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 20px; } .disparity-row.header { display: none; } .disparity-cell::before { content: attr(data-label) ': '; color: var(--ivory-mute); font-family: var(--display); font-size: 11px; letter-spacing: 0.22em; margin-right: 6px; } }
+@media (max-width: 720px) { .plan-grid { grid-template-columns: 1fr; } .disparity-row { grid-template-columns: 1fr; gap: 6px; } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Prepared for Fincantieri Marine Group &middot; AG1 Consulting</span>
+    <h1>228 years at sea. &euro;9.2B parent revenue.<br>AI search lists your competitors <em>first.</em></h1>
+    <p>What fincantierimarinegroup.com looks like to a US Navy procurement official, a Coast Guard acquisitions officer, or a commercial fleet manager asking ChatGPT "who are the leading American defense shipbuilders" tonight versus what 90 days of schema, parent-entity unification, and citation campaign could deliver. The capability and parent equity are unmatched in the Fourth Coast region. The structured data layer is thin.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Fincantieri Marine Group: <em>before vs after</em></h2>
+    <p class="section-sub">Same three Wisconsin shipyards (Marinette Marine, Bay Shipbuilding, ACE Marine). Same 1,500+ vessels delivered by Marinette since 1942. Same parent group with 228 years at sea, &euro;9.2B revenue, &euro;63B backlog, 18 yards on four continents. Two very different chances of being shortlisted when a procurement officer asks an AI assistant in 2026.</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-label current">Today &middot; Live Site</div>
+        <div class="compare-preview current-bg"><div class="compare-preview-content"><h3>fincantierimarinegroup.com</h3><p>Currently live &middot; Click to view</p></div></div>
+        <div class="compare-body current">
+          <h4>What's there now</h4>
+          <p>The capability and parent equity are real. The American subsidiary's site carries almost none of that equity into Google's structured data or AI search citation surfaces.</p>
+          <ul>
+            <li>0 of 4 to 1 of 4 AI engine recommendations across procurement-intent queries</li>
+            <li>No Organization schema cross-linked to Fincantieri S.p.A. parent entity</li>
+            <li>No per-yard Place / Manufacturer schema for Marinette, Bay Shipbuilding, ACE Marine</li>
+            <li>No program pages with Corporation / GovernmentService schema for LSM, MMSC, Coast Guard cutters, LNG bunker barges</li>
+            <li>No FAQPage schema for the questions procurement officers actually ask</li>
+            <li>Heritage and continuity signals (228 years, 1,500+ vessels, &euro;9.2B revenue) not in machine-readable markup</li>
+            <li>Huntington Ingalls (Newport News), General Dynamics (Bath Iron Works), Austal USA, Bollinger, Eastern Shipbuilding dominate the AI Overview</li>
+          </ul>
+          <a href="https://fincantierimarinegroup.com/" target="_blank" rel="noopener" class="compare-cta cta-current">View Live Site &rarr;</a>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-label new">Proposed &middot; Authority Build</div>
+        <div class="compare-preview new-bg"><div class="compare-preview-content"><h3>The Fourth Coast authority</h3><p>Click to explore the demo &rarr;</p></div></div>
+        <div class="compare-body new">
+          <h4>What we'd ship</h4>
+          <p>A schema-and-citation rebuild that transfers 228 years of parent equity into structured authority signals AI engines can read, plus dedicated program pages indexed for the procurement-intent queries acquisitions staff actually type.</p>
+          <ul>
+            <li>Full Organization + Corporation + Place + Manufacturer + FAQ schema with parent sameAs unification</li>
+            <li>Per-yard structured data (Marinette 1942, Bay Shipbuilding Sturgeon Bay history, ACE Marine)</li>
+            <li>6 program pages (LSM, MMSC, Coast Guard cutters, LNG bunker barges + ATBs, Great Lakes self-unloading bulkers, ACE small-craft and modular)</li>
+            <li>Wikipedia and Wikidata gap closure for FMG, three yards, four active programs</li>
+            <li>Heritage and continuity signals in machine-readable markup (228 years, 1,500+ vessels, &euro;63B backlog)</li>
+            <li>Citation campaign: USNI News, Defense News, Naval News, Breaking Defense, Maritime Executive, GovCon Wire and Potomac Officers Club rankings</li>
+            <li>Performance gate: 3 of 4 procurement-intent AI mentions by day 90 + 5 of 9 citation placements by day 120, or work continues</li>
+          </ul>
+          <a href="../" class="compare-cta cta-new">Open the Demo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bombshell-section">
+  <div class="container">
+    <div class="bombshell-grid">
+      <div>
+        <div class="bombshell-stat">228</div>
+        <div class="bombshell-stat-sub">years at sea</div>
+        <div class="bombshell-stat-label">&middot; 0 of 4 procurement-intent AI mentions</div>
+      </div>
+      <div class="bombshell-content">
+        <h2>The parent equity is real. The <em>entity unification</em> isn't.</h2>
+        <p>Fincantieri Marine Group is the American operating arm of one of the world's largest shipbuilders. Parent group: 228 years at sea, 1959 reincorporation, 18 yards on four continents, &euro;9.2B in 2025 revenue, &euro;63B order backlog, roughly 24,000 employees. American programs include the four new Medium Landing Ships awarded to Marinette in February 2026, with $800M in congressional support and a program ceiling of up to 35 vessels.</p>
+        <p>None of that surfaces in Google's structured data layer the way it does for HII, General Dynamics, or Austal USA. <strong>Organization schema is not cross-linked to the parent Fincantieri S.p.A. entity.</strong> sameAs unification across Wikipedia, Wikidata, the parent IR site, and the three yard subdomains is incomplete. The three yards do not have per-Manufacturer schema. The four active programs do not have program-page schema. AI engines that decide who to shortlist for "American defense shipbuilders" treat the American subsidiary as a separate, smaller entity than the search graph allows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Side by side with the cited <em>competitors.</em></h2>
+    <p class="section-sub">The capability and parent equity are unmatched in the Great Lakes region. The schema, entity unification, and citation-density gaps are what prevent that capability from showing up in procurement-stage AI search.</p>
+    <div class="disparity-grid">
+      <div class="disparity-row header">
+        <div>Shipbuilder</div>
+        <div>Capability Footprint</div>
+        <div>Schema + Wiki</div>
+        <div>AI Recommend</div>
+      </div>
+      <div class="disparity-row you">
+        <div class="disparity-name you">Fincantieri Marine Group</div>
+        <div class="disparity-cell" data-label="Footprint"><strong>3 WI yards + &euro;9.2B parent</strong></div>
+        <div class="disparity-cell" data-label="Schema"><strong>Light &middot; Partial Wiki</strong></div>
+        <div class="disparity-cell" data-label="AI"><strong>0 to 1 of 4</strong></div>
+      </div>
+      <div class="disparity-row">
+        <div class="disparity-name">HII Newport News</div>
+        <div class="disparity-cell" data-label="Footprint">Carrier + sub programs</div>
+        <div class="disparity-cell" data-label="Schema">Full &middot; Comprehensive</div>
+        <div class="disparity-cell" data-label="AI">4 of 4</div>
+      </div>
+      <div class="disparity-row">
+        <div class="disparity-name">General Dynamics Bath Iron Works</div>
+        <div class="disparity-cell" data-label="Footprint">DDG + Electric Boat</div>
+        <div class="disparity-cell" data-label="Schema">Full &middot; Comprehensive</div>
+        <div class="disparity-cell" data-label="AI">4 of 4</div>
+      </div>
+      <div class="disparity-row">
+        <div class="disparity-name">Austal USA</div>
+        <div class="disparity-cell" data-label="Footprint">LCS + EPF + new steel</div>
+        <div class="disparity-cell" data-label="Schema">Full &middot; Comprehensive</div>
+        <div class="disparity-cell" data-label="AI">3 of 4</div>
+      </div>
+      <div class="disparity-row">
+        <div class="disparity-name">Bollinger Shipyards</div>
+        <div class="disparity-cell" data-label="Footprint">Coast Guard cutters + offshore</div>
+        <div class="disparity-cell" data-label="Schema">Full &middot; Comprehensive</div>
+        <div class="disparity-cell" data-label="AI">3 of 4</div>
+      </div>
+      <div class="disparity-row">
+        <div class="disparity-name">Eastern Shipbuilding</div>
+        <div class="disparity-cell" data-label="Footprint">OPC + commercial</div>
+        <div class="disparity-cell" data-label="Schema">Partial</div>
+        <div class="disparity-cell" data-label="AI">1 of 4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">The <em>90-day</em> plan.</h2>
+    <p class="section-sub">Four phases. By day 90, Fincantieri Marine Group is a named recommendation in 3 of 4 procurement-intent AI queries, six program pages are live with Corporation schema, the three yards have per-Manufacturer schema, and the parent-subsidiary entity unification is closed across Wikipedia, Wikidata, and the parent IR site.</p>
+    <div class="plan-grid">
+      <div class="plan-card"><span class="plan-num">PHASE 01</span><h4>Foundation + Parent Unification</h4><p>Organization + Corporation schema with parent sameAs links. Per-yard Place + Manufacturer schema. Heritage signals (228 yrs, 1,500+ vessels) in machine-readable markup. Crawler-access review (baseline fetch returned 403). Wikipedia + Wikidata gap analysis.</p><span class="plan-week">Weeks 1&ndash;3</span></div>
+      <div class="plan-card"><span class="plan-num">PHASE 02</span><h4>Program + Capability Pages</h4><p>6 program pages (LSM, MMSC, Coast Guard cutters, LNG bunker barges, Great Lakes bulkers, ACE small-craft) with Corporation / GovernmentService and FAQ schema. Capability pages per yard with equipment, certifications, workforce, active program assignments.</p><span class="plan-week">Weeks 3&ndash;7</span></div>
+      <div class="plan-card"><span class="plan-num">PHASE 03</span><h4>Citation + Press Campaign</h4><p>USNI News, Defense News, Naval News, Breaking Defense pitches. Wikipedia notability documentation for the three yards and four programs. Wikidata items linked to parent. GovCon Wire and Potomac Officers Club ranking inclusion. 8 to 12 podcast pitch sequence.</p><span class="plan-week">Weeks 4&ndash;12</span></div>
+      <div class="plan-card"><span class="plan-num">PHASE 04</span><h4>Procurement Surface</h4><p>Capability-by-mission, capability-by-displacement, capability-by-yard procurement-intent landing pages. Press kit and capability-statement PDF set, schema-linked. AI-mention monitoring across ChatGPT, Perplexity, Google AI Overview, Claude for 12 procurement queries.</p><span class="plan-week">Weeks 6&ndash;12</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">The <em>scorecard.</em></h2>
+    <p class="section-sub">Every signal AI search engines check, the current fincantierimarinegroup.com graded against the 90-day rebuild.</p>
+    <div class="scorecard">
+      <div class="scorecard-header"><div>Signal</div><div>Today</div><div>After plan</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Organization schema with parent sameAs</div><div class="scorecard-cell current">&times; Light</div><div class="scorecard-cell new">&check; Full</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Per-yard Place / Manufacturer schema</div><div class="scorecard-cell current">&times; None</div><div class="scorecard-cell new">&check; 3 yards</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Program-page schema (LSM, MMSC, Coast Guard, LNG, bulkers, ACE)</div><div class="scorecard-cell current">&times; None</div><div class="scorecard-cell new">6 pages</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">FAQPage schema (procurement-intent)</div><div class="scorecard-cell current">&times; None</div><div class="scorecard-cell new">&check; 60+ Q&amp;As</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Heritage and continuity signals in markup</div><div class="scorecard-cell current">&times; Copy only</div><div class="scorecard-cell new">&check; Surfaced</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Wikipedia entries (parent + 3 yards + 4 programs)</div><div class="scorecard-cell current">Partial</div><div class="scorecard-cell new">&check; Comprehensive</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Wikidata items (entity + yards + programs)</div><div class="scorecard-cell current">Partial</div><div class="scorecard-cell new">&check; Linked to parent</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Crawler-access (verified for AI training crawlers)</div><div class="scorecard-cell current">Returns 403</div><div class="scorecard-cell new">&check; Verified open</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">USNI / Defense News / Naval News citation density</div><div class="scorecard-cell current">Partial</div><div class="scorecard-cell new">&check; Multiple</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">GovCon Wire / Potomac Officers Club ranking inclusion</div><div class="scorecard-cell current">Partial</div><div class="scorecard-cell new">&check; Listed</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">AI engine recommendation rate (procurement-intent)</div><div class="scorecard-cell current">0 to 1 of 4</div><div class="scorecard-cell new">3 of 4 target</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Authority tier</div><div class="scorecard-cell current">Parent-only</div><div class="scorecard-cell new">Parent + Subsidiary</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>The procurement officer shortlisting<br>American shipbuilders <em>tonight</em> can't find you.</h2>
+    <p>Right now, ChatGPT is naming Huntington Ingalls and General Dynamics. Ninety days from now, the 228 years of Fincantieri heritage shows up in the answer.</p>
+    <div class="cta-buttons">
+      <a href="mailto:info@andreicopy.net" class="cta-button primary">Open the Conversation &rarr;</a>
+      <a href="../" class="cta-button ghost">Open the Demo &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>AG1 Consulting &middot; Andrei Givero &middot; info@andreicopy.net &middot; <a href="https://andrei170.github.io/ag1/">andrei170.github.io/ag1</a></span>
+</footer>
+</body>
+</html>
